@@ -10,6 +10,7 @@ LOGS_Folder="/var/log/RoboShop_ShellScript_Concise"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_Folder/$SCRIPT_NAME.log"
 mkdir -p $LOGS_Folder
+SCRIPT_DIR=$PWD
 
 echo -e  "$R Script Executed at:$START_TIME $N" | tee -a $LOG_FILE # Tee command Display the content on Screen
 
@@ -27,7 +28,7 @@ App_Setup(){
 
     mkdir  -p /app
     Validate $? "Creating /app Dir"
-    curl -o /tmp/$app_type.zip https://roboshop-artifacts.s3.amazonaws.com/$app_type-v3.zip &>>$LOG_FILE
+    curl -l -o /tmp/$app_type.zip https://roboshop-artifacts.s3.amazonaws.com/$app_type-v3.zip &>>$LOG_FILE
     Validate $? "Downloading the $app_type Code"
 
     rm -rf /app/*
