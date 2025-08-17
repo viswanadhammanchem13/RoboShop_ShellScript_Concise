@@ -37,7 +37,7 @@ App_Setup(){
 }
 
 NodeJS_Setup(){
-    nf module disable nodejs -y &>>$LOG_FILE
+    dnf module disable nodejs -y &>>$LOG_FILE
     Validate $? "Disabeling NodeJS"
 
     dnf module enable nodejs:20 -y &>>$LOG_FILE
