@@ -28,7 +28,7 @@ App_Setup(){
 
     mkdir  -p /app
     Validate $? "Creating /app Dir"
-    curl -L -o /tmp/$app_type.zip https://roboshop-artifacts.s3.amazonaws.com/$app_type-v3.zip &>>$LOG_FILE
+    curl -o /tmp/$app_type.zip https://roboshop-artifacts.s3.amazonaws.com/$app_type-v3.zip &>>$LOG_FILE
     Validate $? "Downloading the $app_type Code"
 
     rm -rf /app/*
