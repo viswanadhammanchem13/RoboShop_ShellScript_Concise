@@ -1,6 +1,6 @@
 #!/bin/bash
 
-app_type= Catalogue
+app_type=catalogue
 
 source ./Common.sh
 
