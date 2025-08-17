@@ -52,7 +52,7 @@ NodeJS_Setup(){
 }
 
 Systemd_Setup(){
-    cp $SCRIPT_DIR/$app_type.service /etc/systemd/system/$app_type.service &>>$LOG_FILE
+    cp $SCRIPT_DIR/$app_Service.Service /etc/systemd/system/$app_type.service &>>$LOG_FILE
     Validate $? "Coping $app_type Service"
 
     systemctl daemon-reload &>>$LOG_FILE

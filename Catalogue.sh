@@ -1,6 +1,7 @@
 #!/bin/bash
 
-app_type=Catalogue
+app_type=catalogue
+app_Service=Catalogue
 
 source ./Common.sh
 
