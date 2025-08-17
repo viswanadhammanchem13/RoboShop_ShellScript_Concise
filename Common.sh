@@ -6,12 +6,12 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-LOGS_Folder="/var/log/Roboshop"
+LOGS_Folder="/var/log/RoboShop_ShellScript_Concise"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_Folder/$SCRIPT_NAME.log"
 mkdir -p $LOGS_Folder
 
-echo -e  "$R Script Executed at:$TIME $N" | tee -a $LOG_FILE # Tee command Display the content on Screen
+echo -e  "$R Script Executed at:$START_TIME $N" | tee -a $LOG_FILE # Tee command Display the content on Screen
 
 App_Setup(){
 
@@ -28,7 +28,7 @@ App_Setup(){
     mkdir  -p /app
     Validate $? "Creating /app Dir"
     curl -o /tmp/$app_type.zip https://roboshop-artifacts.s3.amazonaws.com/$app_type-v3.zip &>>$LOG_FILE
-    Validate $? "Downloading the Code"
+    Validate $? "Downloading the $app_type Code"
 
     rm -rf /app/*
     cd /app &>>$LOG_FILE
@@ -69,10 +69,10 @@ Systemd_Setup(){
 Check_Root(){
     if [ $USERID -ne 0 ] #Checks Whether UID is = 0 or not
     then #!= 0 Enter into Loop
-        echo -e "$R Error:Please proceed the Installation with sudo $N" | tee -a $LOG_FILE #Prints this messages on Screen
+        echo -e "$R Error:Please Proceed the Installation with Sudo Access.. $N" | tee -a $LOG_FILE #Prints this messages on Screen
         exit 1 #!= 0 Don't Proceed with next command and Exit
     else #If =0 Enter into else loop
-        echo -e "$Y Please proceed the Installation $N" | tee -a $LOG_FILE #Prints this messages on Screen
+        echo -e "$Y  You Have Sudo Access..Please proceed the Installation $N" | tee -a $LOG_FILE #Prints this messages on Screen
     fi #Condition Ends
 }
 
