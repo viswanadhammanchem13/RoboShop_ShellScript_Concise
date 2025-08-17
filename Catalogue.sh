@@ -6,9 +6,9 @@ source ./Common.sh
 
 Check_Root
 
-NodeJS_Setup
-
 App_Setup
+
+NodeJS_Setup
 
 Systemd_Setup
 
