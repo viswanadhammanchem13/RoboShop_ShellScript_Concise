@@ -28,7 +28,7 @@ App_Setup(){
 
     mkdir  -p /app
     Validate $? "Creating /app Dir"
-    curl -l -o /tmp/$app_type.zip https://roboshop-artifacts.s3.amazonaws.com/$app_type-v3.zip &>>$LOG_FILE
+    curl -L -o /tmp/$app_type.zip https://roboshop-artifacts.s3.amazonaws.com/$app_type-v3.zip &>>$LOG_FILE
     Validate $? "Downloading the $app_type Code"
 
     rm -rf /app/*
@@ -61,7 +61,7 @@ Systemd_Setup(){
     systemctl enable $app_type &>>$LOG_FILE
     Validate $? "Enabling $app_type Service"
 
-    systemctl start catalogue &>>$LOG_FILE
+    systemctl start $app_type &>>$LOG_FILE
     Validate $? "Starting $app_type Service"
 
 }
@@ -80,7 +80,7 @@ Check_Root(){
 Validate (){ #Function Definition
     if [ $1 -eq 0 ] #Checks If Exit code equls to Zero, Yes
     then #Enter into Loop
-        echo -e "$G $2...... is suceefull $N"  | tee -a $LOG_FILE #Prints this messages on Screen
+        echo -e "$G $2...... is successful $N"  | tee -a $LOG_FILE #Prints this messages on Screen
     else #Checks If Exit code != Zero, No
         echo -e " $R $2 ......is failed $N" | tee -a $LOG_FILE #Prints this messages on Screen
         exit 1 #Condition Exits and Entire Script Fails.
