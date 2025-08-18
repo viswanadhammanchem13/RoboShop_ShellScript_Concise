@@ -6,6 +6,8 @@ source ./MySql.sh
 echo "Please Enter Root Password to SetUp"
 read -s MYSQL_ROOT_PWD
 
+Check_Root
+
 dnf install mysql-server -y &>>$LOG_FILE
 Validate $? "MYSQL Installation"
 
