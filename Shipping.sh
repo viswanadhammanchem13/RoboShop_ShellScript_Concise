@@ -17,6 +17,9 @@ Maven_Setup
 
 Systemd_Setup
 
+dnf install mysql -y  &>>$LOG_FILE
+Validate $? "Install MySQL"
+
 mysql -h mysql.manchem.site -u root -p$MYSQL_ROOT_PWD -e 'use cities' &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
@@ -29,8 +32,8 @@ else
 fi
 Validate $? "Loading data into MySQL"
 
-systemctl restart shipping &>>$LOG_FILE
-Validate $? "Restarting Shipping  Service"
+systemctl restart $app_type &>>$LOG_FILE
+Validate $? "Restarting $app_type  Service"
 
 Print_Time
 
