@@ -7,8 +7,11 @@ app_Service=Shipping
 source ./Common.sh
 
 App_Setup
+
 Check_Root
+
 Maven_Setup
+
 Systemd_Setup
 
 mysql -h mysql.manchem.site -u root -p$MYSQL_ROOT_PWD -e 'use cities' &>>$LOG_FILE
