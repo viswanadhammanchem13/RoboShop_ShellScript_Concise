@@ -58,7 +58,7 @@ Maven_Setup(){
     mvn clean package  &>>$LOG_FILE
     VALIDATE $? "Packaging the shipping application"
 
-    mv target/$app_type-1.0.jar $app_type.jar  &>>$LOG_FILE
+    mv target/shipping-1.0.jar shipping.jar  &>>$LOG_FILE
     VALIDATE $? "Moving and renaming Jar file
 }
 
