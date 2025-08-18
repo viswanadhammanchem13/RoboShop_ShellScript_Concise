@@ -17,10 +17,10 @@ echo -e  "$R Script Executed at:$TIME $N" | tee -a $LOG_FILE # Tee command Displ
 
 if [ $USERID -ne 0 ] #Checks Whether UID is = 0 or not
 then #!= 0 Enter into Loop
-    echo -e "$R Error:Please proceed the Installation with sudo $N" | tee -a $LOG_FILE #Prints this messages on Screen
+    echo -e "$R Error:Please proceed the Installation with Sudo access.. $N" | tee -a $LOG_FILE #Prints this messages on Screen
     exit 1 #!= 0 Don't Proceed with next command and Exit
 else #If =0 Enter into else loop
-    echo -e "$Y Please proceed the Installation $N" | tee -a $LOG_FILE #Prints this messages on Screen
+    echo -e "$Y You Have Sudo access.. Please proceed the Installation $N" | tee -a $LOG_FILE #Prints this messages on Screen
 fi #Condition Ends
 
 Validate (){ #Function Definition
@@ -67,7 +67,7 @@ rm -rf /etc/nginx/nginx.conf &>>$LOG_FILE
 Validate $? "Remove default nginx conf"
 
 cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf &>>$LOG_FILE
-Validate $? "Coping Catalogue Service"
+Validate $? "Coping Catalogue Configuration"
 
 systemctl restart nginx &>>$LOG_FILE
 Validate $? "Restarting Nginx Service" 
