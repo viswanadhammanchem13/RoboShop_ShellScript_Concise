@@ -2,7 +2,7 @@
 
 app_type=redis
 
-sudo ./Common.sh
+source ./Common.sh
 
 Check_Root
 
