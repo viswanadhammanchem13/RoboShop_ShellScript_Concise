@@ -51,6 +51,21 @@ NodeJS_Setup(){
     Validate $? "Dependencies installions"
 }
 
+Maven(){
+        dnf install maven -y &>>$LOG_FILE
+    Validate $? "Installing Maven and Java"
+
+    id roboshop
+    if [ $? -eq 0 ]
+    then
+        echo "Roboshop user is already created...Skipping"
+    else 
+        echo "Roboshop user is not created...Creating"
+        useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
+        Validate $? "Creating Roboshop user"
+    fi
+}
+
 Systemd_Setup(){
     cp $SCRIPT_DIR/$app_Service.Service /etc/systemd/system/$app_type.service &>>$LOG_FILE
     Validate $? "Coping $app_type Service"
