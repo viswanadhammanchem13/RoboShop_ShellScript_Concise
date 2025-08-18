@@ -60,7 +60,7 @@ Maven_Setup(){
      Validate $? "Packaging the shipping application"
 
     mv target/shipping-1.0.jar shipping.jar  &>>$LOG_FILE
-    Validate $? "Moving and renaming Jar file
+    Validate $? "Moving and renaming Jar file"
 }
 
 Systemd_Setup(){
