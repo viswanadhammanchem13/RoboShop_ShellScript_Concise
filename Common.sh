@@ -1,4 +1,5 @@
 #!/bin/bash
+
 START_TIME=$(date +%s)
 USERID=$(id -u) #Stores User UID
 R="\e[31m"
@@ -56,10 +57,10 @@ Maven_Setup(){
     Validate $? "Installing Maven and Java"
 
     mvn clean package  &>>$LOG_FILE
-    VALIDATE $? "Packaging the shipping application"
+     Validate $? "Packaging the shipping application"
 
     mv target/shipping-1.0.jar shipping.jar  &>>$LOG_FILE
-    VALIDATE $? "Moving and renaming Jar file
+    Validate $? "Moving and renaming Jar file
 }
 
 Systemd_Setup(){
@@ -101,6 +102,5 @@ Validate (){ #Function Definition
 Print_Time(){
     END_TIME=$(date +%s)
     TOTAL_TIME=$(( $END_TIME - $START_TIME ))
-
     echo -e "Script exection completed successfully, $Y time taken: $TOTAL_TIME seconds $N" | tee -a $LOG_FILE
 }
