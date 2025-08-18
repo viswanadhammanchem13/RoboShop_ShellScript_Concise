@@ -2,7 +2,7 @@
 
 app_type=user
 
-app_Service=User
+app_Service=Users
 
 source ./Common.sh
 
