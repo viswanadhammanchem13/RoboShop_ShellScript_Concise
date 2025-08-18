@@ -97,6 +97,7 @@ Validate (){ #Function Definition
         exit 1 #Condition Exits and Entire Script Fails.
     fi #Condition Ends
 }
+
 Print_Time(){
     END_TIME=$(date +%s)
     TOTAL_TIME=$(( $END_TIME - $START_TIME ))
