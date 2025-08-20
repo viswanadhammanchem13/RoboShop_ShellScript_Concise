@@ -4,7 +4,7 @@ app_type=mysql
 source ./Common.sh
 
 echo "Please Enter Root Password to SetUp:"
-read  MYSQL_ROOT_PWD
+read -s  MYSQL_ROOT_PWD
 
 Check_Root
 
