@@ -73,6 +73,18 @@ Python3_Setup(){
 
 }
 
+Golang_Setup(){
+
+    dnf install golang -y &>>$LOG_FILE
+    Validate $? "Installling Golang"
+    
+    go mod init dispatch
+    go get 
+    go build &>>$LOG_FILE
+    Validate $? "Dependencies installions"
+
+}
+
 Systemd_Setup(){
     cp $SCRIPT_DIR/$app_Service.Service /etc/systemd/system/$app_type.service &>>$LOG_FILE
     Validate $? "Coping $app_type Service"
