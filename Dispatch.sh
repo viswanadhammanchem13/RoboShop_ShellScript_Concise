@@ -3,6 +3,8 @@
 app_type=dispatch
 app_Service=Dispatch
 
+source ./Common.sh
+
 App_Setup
 
 Check_Root
