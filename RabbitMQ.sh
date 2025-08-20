@@ -6,8 +6,8 @@ source ./Common.sh
 
 Check_Root
 
-echo "Please enter rabbitmq password to setup"
-read -s RABBITMQ_PWD
+echo "Please enter rabbitmq password to setup:"
+read  RABBITMQ_PWD
 
 cp rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo
 Validate $? "Copying RabbitMQ Repo"
