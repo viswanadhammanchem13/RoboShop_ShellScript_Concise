@@ -11,7 +11,7 @@ App_Setup
 Check_Root
 
 echo "Please Enter Root Password to SetUp:"
-read  MYSQL_ROOT_PWD
+read -s  MYSQL_ROOT_PWD
 
 Maven_Setup
 

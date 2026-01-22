@@ -1,8 +1,11 @@
 #!/bin/bash
 
 source ./Common.sh
+
 Check_Root
+
 app_type=mongoDB
+
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>>LOG_FILE
 Validate $? "Coping of MongoDB Repo"
 
